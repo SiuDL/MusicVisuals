@@ -8,7 +8,7 @@ public class Game extends PApplet{
     boolean[] keys = new boolean[1024];
 
     Player p;
-    WorldObj objF;
+    WorldObj obj;
 
     public void settings(){
         size(1200, 800);
@@ -16,12 +16,12 @@ public class Game extends PApplet{
 
     public void setup(){
         p = new Player(this, width/2, height/2);
-        objF = new WorldObj(this);
+        obj = new WorldObj(this);
     }
 
     public void draw(){
         background(0);
-        objF.render();
+        obj.render();
     }
 
     boolean checkKey(int k) {

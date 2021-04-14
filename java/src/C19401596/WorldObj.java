@@ -7,13 +7,17 @@ public class WorldObj extends GameObject{
 
     private float floorY = game.height * 0.88f;
 
-    public void rendFloor(){
+    /*
+        rendFloor method to take in variables and
+        create floor objects, can be used to create multiple floors
+    */
+    private void rendFloor(float x, float y, float w, float h){
         game.fill(255);
-        game.rect(0, floorY, game.width, 100);
+        game.rect(x, y, w, h);
     }
 
     public void render() {
-        rendFloor();
+        rendFloor(0, floorY, game.height, 100); // creates the main floor within the level
     }
 
     public void update() {
