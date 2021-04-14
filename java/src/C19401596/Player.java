@@ -5,7 +5,6 @@ public class Player extends GameObject{
         super(game, x, y);
     }
 
-
     public void render(){
         
     }

@@ -3,7 +3,6 @@ package C19401596;
 public abstract class GameObject {
     float x, y;
     float dx, dy;
-    float rotation = 0;
     float speed = 5;
     Game game;
     float w = 50;
