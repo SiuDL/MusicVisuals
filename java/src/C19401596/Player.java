@@ -21,7 +21,6 @@ public class Player extends GameObject{
     }
 
     public void update(){
-        playerVel();
 
         if(game.keyPressed == true){
             if (game.keyCode == PApplet.UP){

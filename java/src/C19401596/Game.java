@@ -24,10 +24,11 @@ public class Game extends PApplet{
     public void draw(){
         background(80,80,80);
         p.render();
+        p.playerVel();
         p.update();
         obj.render();
 
-        //gravity();
+        gravity();
         collisionDetect();
     }
     
@@ -39,18 +40,22 @@ public class Game extends PApplet{
     }
 
     public void gravity(){
-        p.setVelY(1);
+        //p.setVelY(1);
     }
 
     public void collisionDetect(){
 
         // stops player from falling through the ground
-        if(p.getY() + 50 >= obj.getFloorY()){
-            //p.setVelY(0);
+        if(p.getY()>= obj.getFloor()){
+            p.setY(obj.getFloor());
         }
 
-        if(p.getX() - 50 <= 0 || p.getX() + 50 >= width){
-            //p.setVelX(0);
+        if(p.getX() <= obj.getLeftWall()){
+            p.setX(obj.getLeftWall());
+        }
+
+        if(p.getX() >= obj.getRightWall()){
+            p.setX(obj.getRightWall());
         }
     }
 
