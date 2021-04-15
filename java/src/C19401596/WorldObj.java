@@ -5,7 +5,7 @@ public class WorldObj extends GameObject{
         super(game,0,0);
     }
 
-    private float floorY = game.height * 0.88f;
+    private float floorY = game.height * 0.9f;
     private float floorW = game.width;
 
     /*
@@ -17,11 +17,11 @@ public class WorldObj extends GameObject{
         game.rect(x, y, w, h);
     }
 
-    public void render() {
+    public void render(){
         rendFloor(0, floorY, floorW, 100); // creates the main floor within the level
     }
 
-    public void update() {
+    public void update(){
 
     }
 

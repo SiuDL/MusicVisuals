@@ -17,10 +17,11 @@ public class Game extends PApplet{
     public void setup(){
         p = new Player(this, width/2, height/2);
         obj = new WorldObj(this);
+        System.out.println("Floor Height: " + obj.getFloor());
     }
 
     public void draw(){
-        background(0);
+        background(115,115,115);
         obj.render();
     }
 
