@@ -10,15 +10,15 @@ public class Game extends PApplet{
     Player p;
     WorldObj obj;
 
-    Boolean contact = true;
+    Boolean contact;
 
     public void settings(){
         size(1400, 900);
     }
 
     public void setup(){
-        p = new Player(this, width/2, height/2);
         obj = new WorldObj(this);
+        p = new Player(this, width/2, obj.getFloor());
     }
 
     public void draw(){
@@ -28,6 +28,7 @@ public class Game extends PApplet{
         p.update();
         obj.render();
 
+        gravity();
         collisionDetect();
     }
     
@@ -39,14 +40,21 @@ public class Game extends PApplet{
     }
 
     public void gravity(){
-        System.out.println("Gravity is in effect");
-        p.setVelY(5);
+        if(p.getY() == obj.getFloor()){
+            contact = true;
+        }else{
+            contact = false;
+        }
+
+        if(p.getY() <= height/2 && contact == false){
+            p.setVelY(20);
+        }
     }
 
     public void collisionDetect(){
 
         // stops player from falling through the ground
-        if(p.getY()>= obj.getFloor()){
+        if(p.getY() >= obj.getFloor()){
             p.setY(obj.getFloor());
         }
 

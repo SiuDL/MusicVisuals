@@ -8,8 +8,8 @@ public class Player extends GameObject{
         super(game, x, y);
     }
 
-    private double velX = 0;
-    private double velY = 0;
+    private float velX = 0;
+    private float velY = 0;
 
     public void render(){
         game.fill(255);
@@ -25,33 +25,29 @@ public class Player extends GameObject{
 
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
-                setVelY(-20);
-            }else if (game.checkKey(PApplet.DOWN)){
-                setVelY(8);
+                setVelY(-40);
             }else if (game.checkKey(PApplet.RIGHT)){
-                setVelX(8);
+                setVelX(10);
             }else if (game.checkKey(PApplet.LEFT)){
-                setVelX(-8);
+                setVelX(-10);
             }
         }
         if(game.keyPressed == false){
             if (game.keyCode == PApplet.UP){
                 setVelY(0);
-            }else if (game.keyCode == PApplet.DOWN){
-                setVelY(0);
-            }else if (game.keyCode == PApplet.RIGHT){
+            }if (game.keyCode == PApplet.RIGHT){
                 setVelX(0);
-            }else if (game.keyCode == PApplet.LEFT){
+            }if (game.keyCode == PApplet.LEFT){
                 setVelX(0);
             }
         }
     }
 
-    public void setVelX(double velX){
+    public void setVelX(float velX){
         this.velX = velX;
     }
 
-    public void setVelY(double velY){
+    public void setVelY(float velY){
         this.velY = velY;
     }
 }
