@@ -12,6 +12,13 @@ public class WorldObj extends GameObject{
     private float floorH = 100;
     private float halfFH = floorH / 2;
 
+    // roof variables
+    private float roofX = 0;
+    private float roofY = 0;
+    private float roofW = game.width;
+    private float roofH = 20;
+    private float halfRH = roofH / 2;
+
     // left wall veriables
     private float leftWallX = 0;
     private float leftWallY = 0;
@@ -25,18 +32,19 @@ public class WorldObj extends GameObject{
     private float rightWallH = game.height;
 
     /*
-        rendFloor method to take in variables and
-        create floor objects, can be used to create multiple floors
+        rendObj method to take in variables and
+        create world objects, can be used to create multiple objects
     */
-    private void rendFloor(float x, float y, float w, float h){
-        game.fill(255,255,255);
+    private void rendObj(float x, float y, float w, float h){
+        game.fill(0);
         game.rect(x, y, w, h);
     }
 
     public void render(){
-        rendFloor(floorX, floorY, floorW, floorH); // creates the main floor within the level
-        rendFloor(leftWallX, leftWallY, leftWallW, leftWallH); // creates the left wall within level
-        rendFloor(rightWallX, rightWallY, rightWallW, rightWallH); // creates the left wall within level
+        rendObj(floorX, floorY, floorW, floorH); // creates the main floor within the level
+        rendObj(leftWallX, leftWallY, leftWallW, leftWallH); // creates the left wall
+        rendObj(rightWallX, rightWallY, rightWallW, rightWallH); // creates the left wall
+        rendObj(roofX, roofY, roofW, roofH); // creates the roof
     }
 
     public void update(){
@@ -53,5 +61,9 @@ public class WorldObj extends GameObject{
 
     public float getRightWall(){
         return rightWallX - 50;
+    }
+
+    public float getRoof(){
+        return roofH + 50;
     }
 }

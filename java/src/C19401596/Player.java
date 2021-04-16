@@ -12,6 +12,7 @@ public class Player extends GameObject{
     private double velY = 0;
 
     public void render(){
+        game.fill(255);
         game.ellipse(x, y, 100, 100);
     }
 
@@ -23,40 +24,34 @@ public class Player extends GameObject{
     public void update(){
 
         if(game.keyPressed == true){
-            if (game.keyCode == PApplet.UP){
-                setVelY(-5);
-            }
-            if (game.keyCode == PApplet.DOWN){
-                setVelY(5);
-            }
-            if (game.keyCode == PApplet.RIGHT){
-                setVelX(5);
-            }
-            if (game.keyCode ==PApplet.LEFT){
-                setVelX(-5);
+            if (game.checkKey(PApplet.UP)){
+                setVelY(-20);
+            }else if (game.checkKey(PApplet.DOWN)){
+                setVelY(8);
+            }else if (game.checkKey(PApplet.RIGHT)){
+                setVelX(8);
+            }else if (game.checkKey(PApplet.LEFT)){
+                setVelX(-8);
             }
         }
         if(game.keyPressed == false){
             if (game.keyCode == PApplet.UP){
                 setVelY(0);
-            }
-            if (game.keyCode == PApplet.DOWN){
+            }else if (game.keyCode == PApplet.DOWN){
                 setVelY(0);
-            }
-            if (game.keyCode == PApplet.RIGHT){
+            }else if (game.keyCode == PApplet.RIGHT){
                 setVelX(0);
-            }
-            if (game.keyCode == PApplet.LEFT){
+            }else if (game.keyCode == PApplet.LEFT){
                 setVelX(0);
             }
         }
     }
 
-    public void setVelX(float velX){
+    public void setVelX(double velX){
         this.velX = velX;
     }
 
-    public void setVelY(float velY){
+    public void setVelY(double velY){
         this.velY = velY;
     }
 }
