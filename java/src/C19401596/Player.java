@@ -13,7 +13,7 @@ public class Player extends GameObject{
 
     public void render(){
         game.fill(255);
-        game.ellipse(x, y, 100, 100);
+        game.ellipse(x, y, 100, 100); // note to self, obj collision rely on scale of player object
     }
 
     public void playerVel(){

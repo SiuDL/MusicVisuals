@@ -17,7 +17,6 @@ public class WorldObj extends GameObject{
     private float roofY = 0;
     private float roofW = game.width;
     private float roofH = 20;
-    private float halfRH = roofH / 2;
 
     // left wall veriables
     private float leftWallX = 0;

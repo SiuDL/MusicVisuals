@@ -13,7 +13,6 @@ public class Game extends PApplet{
     Boolean contact = true;
 
     public void settings(){
-        // original size 1200, 800
         size(1400, 900);
     }
 
