@@ -2,6 +2,8 @@ package C19401596;
 
 public abstract class GameObject {
     float x, y;
+    float velX = 0;
+    float velY = 0;
     Game game;
     float w = 50;
     float halfW = w / 2;
@@ -35,6 +37,22 @@ public abstract class GameObject {
 
     public void setW(float w) {
         this.w = w;
+    }
+
+    public void setVelX(float velX){
+        this.velX = velX;
+    }
+
+    public void setVelY(float velY){
+        this.velY = velY;
+    }
+
+    public float getVelY(){
+        return velY;
+    }
+
+    public float getVelX(){
+        return velX;
     }
 
     // subclasses must implement these abstract methods, otherwise they will be abstract

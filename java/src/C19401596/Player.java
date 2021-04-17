@@ -8,9 +8,6 @@ public class Player extends GameObject{
         super(game, x, y);
     }
 
-    private float velX = 0;
-    private float velY = 0;
-
     public void render(){
         game.fill(255);
         game.ellipse(x, y, 100, 100); // note to self, obj collision rely on scale of player object
@@ -25,7 +22,7 @@ public class Player extends GameObject{
 
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
-                setVelY(-40);
+                setVelY(-50);
             }else if (game.checkKey(PApplet.RIGHT)){
                 setVelX(10);
             }else if (game.checkKey(PApplet.LEFT)){
@@ -41,13 +38,5 @@ public class Player extends GameObject{
                 setVelX(0);
             }
         }
-    }
-
-    public void setVelX(float velX){
-        this.velX = velX;
-    }
-
-    public void setVelY(float velY){
-        this.velY = velY;
     }
 }

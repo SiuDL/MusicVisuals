@@ -40,14 +40,23 @@ public class Game extends PApplet{
     }
 
     public void gravity(){
+
+        float gravPull = 10;
+
         if(p.getY() == obj.getFloor()){
             contact = true;
         }else{
             contact = false;
         }
 
-        if(p.getY() <= height/2 && contact == false){
-            p.setVelY(20);
+        p.setVelY(p.getVelY() + gravPull);
+        if(contact == false){
+            if(checkKey(RIGHT)){
+                p.setVelX(p.getVelX() + gravPull);
+            }
+            if(checkKey(LEFT)){
+                p.setVelX(p.getVelX() - gravPull);
+            }
         }
     }
 
