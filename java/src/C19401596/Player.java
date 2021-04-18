@@ -24,7 +24,7 @@ public class Player extends GameObject{
         // checks for when key is pressed
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
-                setVelY(-50);
+                setVelY(-80);
             }
             if (game.checkKey(PApplet.RIGHT)){
                 setVelX(20);

@@ -53,14 +53,11 @@ public class Game extends PApplet{
 
         // gravity affecting velX
         if(contact == false){// start outer if
-            if(checkKey(RIGHT)){
-                // check right velX
-                p.setVelX(p.getVelX() * 0.9f); 
+            if(checkKey(UP) && contact == false){
+                keys[UP] = false;
             }
-            if(checkKey(LEFT)){
-                // check left velX
-                p.setVelX(p.getVelX() * 0.9f);
-            }
+            p.setVelX(p.getVelX() * 0.9f); 
+            p.setVelY(p.getVelY() * 0.9f);
         }// end outer if
     }
     
