@@ -27,10 +27,10 @@ public class Player extends GameObject{
                 setVelY(-50);
             }
             if (game.checkKey(PApplet.RIGHT)){
-                setVelX(15);
+                setVelX(20);
             }
             if (game.checkKey(PApplet.LEFT)){
-                setVelX(-15);
+                setVelX(-20);
             }
         }
 
@@ -39,8 +39,11 @@ public class Player extends GameObject{
             if(game.keyCode == PApplet.UP){
                 setVelY(0);
             }
-            if (game.keyCode == PApplet.RIGHT || game.keyCode == PApplet.LEFT){
-                setVelX(0);
+            if (game.keyCode == PApplet.RIGHT){
+                setVelX(getVelX() * 0.9f);
+            }
+            if (game.keyCode == PApplet.LEFT){
+                setVelX(getVelX() * 0.9f);
             }
         }
     }

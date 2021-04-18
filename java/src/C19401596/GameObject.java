@@ -8,7 +8,7 @@ public abstract class GameObject {
     float velY = 0;
 
     final float gravPull = 10;
-    float accel = 0;
+    final float decel = -5;
 
     public GameObject(Game game, float x, float y)
     {
