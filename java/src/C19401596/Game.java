@@ -1,6 +1,5 @@
 package C19401596;
 
-// import java.lang.*;
 import processing.core.PApplet;
 
 public class Game extends PApplet{
@@ -13,7 +12,7 @@ public class Game extends PApplet{
     Boolean contact;
 
     public void settings(){
-        size(1400, 900);
+        size(1600, 900);
     }
 
     public void setup(){
@@ -38,10 +37,9 @@ public class Game extends PApplet{
         }
         return false;
     }
-
+    
+    // method to simulate basic gravity
     public void gravity(){
-
-        float gravPull = 10;
 
         if(p.getY() == obj.getFloor()){
             contact = true;
@@ -49,17 +47,20 @@ public class Game extends PApplet{
             contact = false;
         }
 
-        p.setVelY(p.getVelY() + gravPull);
+        p.setVelY(p.getVelY() + p.gravPull);
+
+        // gravity implementation for velX
         if(contact == false){
             if(checkKey(RIGHT)){
-                p.setVelX(p.getVelX() + gravPull);
+                p.setVelX(p.getVelX() + p.gravPull);
             }
             if(checkKey(LEFT)){
-                p.setVelX(p.getVelX() - gravPull);
+                p.setVelX(p.getVelX() - p.gravPull);
             }
         }
     }
-
+    
+    // method to detect collision between world objects and the player object
     public void collisionDetect(){
 
         // stops player from falling through the ground
@@ -78,9 +79,6 @@ public class Game extends PApplet{
         if(p.getY() <= obj.getRoof()){
             p.setY(obj.getRoof());
         }
-    }
-
-    public void mousePressed() {
     }
 
     public void keyPressed() {

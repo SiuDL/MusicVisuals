@@ -1,12 +1,14 @@
 package C19401596;
 
 public abstract class GameObject {
+    Game game;
+
     float x, y;
     float velX = 0;
     float velY = 0;
-    Game game;
-    float w = 50;
-    float halfW = w / 2;
+
+    final float gravPull = 10;
+    float accel = 0;
 
     public GameObject(Game game, float x, float y)
     {
@@ -29,14 +31,6 @@ public abstract class GameObject {
 
     public void setY(float y) {
         this.y = y;
-    }
-
-    public float getW() {
-        return w;
-    }
-
-    public void setW(float w) {
-        this.w = w;
     }
 
     public void setVelX(float velX){
