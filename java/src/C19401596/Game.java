@@ -38,24 +38,32 @@ public class Game extends PApplet{
         return false;
     }
     
-    // method to simulate basic gravity
+    // method to simulate a gravitational downforce
     public void gravity(){
 
-        if(p.getY() == obj.getFloor()){
+        // checks for player coming into contact with the floor
+        if(p.getY() >= obj.getFloor()){
             contact = true;
         }else{
             contact = false;
         }
 
+        // gravity affecting velY
         p.setVelY(p.getVelY() + p.gravPull);
 
-        // gravity implementation for velX
+        // gravity affecting velX
         if(contact == false){
             if(checkKey(RIGHT)){
-                p.setVelX(p.getVelX() + p.gravPull);
+                while(contact == false){
+                    p.setVelX(p.getVelX() + p.gravPull);
+                    break;
+                }
             }
             if(checkKey(LEFT)){
-                p.setVelX(p.getVelX() - p.gravPull);
+                while(contact == false){
+                    p.setVelX(p.getVelX() - p.gravPull);
+                    break;
+                }
             }
         }
     }
@@ -63,19 +71,22 @@ public class Game extends PApplet{
     // method to detect collision between world objects and the player object
     public void collisionDetect(){
 
-        // stops player from falling through the ground
+        // stops player from clipping through the ground
         if(p.getY() >= obj.getFloor()){
             p.setY(obj.getFloor());
         }
 
+        // stops player from clipping through the left wall
         if(p.getX() <= obj.getLeftWall()){
             p.setX(obj.getLeftWall());
         }
 
+        // stops player from clipping through the right wall
         if(p.getX() >= obj.getRightWall()){
             p.setX(obj.getRightWall());
         }
 
+        // stops player from clipping through the roof
         if(p.getY() <= obj.getRoof()){
             p.setY(obj.getRoof());
         }

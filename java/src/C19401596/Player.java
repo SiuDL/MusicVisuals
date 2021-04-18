@@ -13,6 +13,7 @@ public class Player extends GameObject{
         game.ellipse(x, y, 100, 100); // note: obj collision rely on the player object's scale
     }
 
+    // method to control player player velocity
     public void playerVel(){
         x += velX;
         y += velY;
@@ -20,6 +21,7 @@ public class Player extends GameObject{
 
     public void update(){
 
+        // checks for when key is pressed
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
                 setVelY(-50);
@@ -32,6 +34,7 @@ public class Player extends GameObject{
             }
         }
 
+        // checks for when key is released
         if(game.keyPressed == false){
             if(game.keyCode == PApplet.UP){
                 setVelY(0);
