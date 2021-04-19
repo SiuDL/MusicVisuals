@@ -44,7 +44,6 @@ public class Game extends PApplet{
         // constant downforce applied to the player
         // gravity affecting velY
         p.setVelY(p.getVelY() + p.getGrav() * p.getDecel());
-        p.setVelX(p.getVelX() * p.getDecel());
 
         // checks for player coming into contact with the floor
         if(p.getY() >= obj.getFloor()){
@@ -52,17 +51,15 @@ public class Game extends PApplet{
         }else{
             contact = false;
             keys[UP] = false;
-            keys[RIGHT] = false;
-            keys[LEFT] = false;
         }
 
         // gravity affecting velX
         if(contact == false){// start outer if
-            if(p.getVelX() > 0){
-                p.setVelX(p.getVelX() + p.getDirect());
+            if(checkKey(RIGHT) == false && checkKey(UP) == false){
+                p.setVelX(p.getVelX() - p.getDirect() * p.getDecel());
             }
-            if(p.getVelX() < 0){
-                p.setVelX(p.getVelX() - p.getDirect());
+            if(checkKey(LEFT) == false && checkKey(UP) == false){
+                p.setVelX(p.getVelX() + p.getDirect() * p.getDecel());
             }
         }// end outer if
     }

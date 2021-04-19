@@ -38,7 +38,7 @@ public class Player extends GameObject{
         if(game.keyPressed == false){
             if(game.keyCode == PApplet.UP){
                 setVelY(0);
-                setVelX(getVelX() * getDecel());
+                setVelX(0);
             }
             if (game.keyCode == PApplet.RIGHT){
                 setVelX(getVelX() * getDecel());
