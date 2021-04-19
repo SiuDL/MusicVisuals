@@ -20,6 +20,8 @@ public class Player extends GameObject{
     }
 
     public void update(){
+        
+        playerVel();
 
         // checks for when key is pressed
         if(game.keyPressed == true){

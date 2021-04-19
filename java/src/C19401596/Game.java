@@ -23,7 +23,6 @@ public class Game extends PApplet{
     public void draw(){
         background(80,80,80);
         p.render();
-        p.playerVel();
         p.update();
         obj.render();
 
