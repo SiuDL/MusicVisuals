@@ -41,23 +41,29 @@ public class Game extends PApplet{
     // method to simulate a gravitational downforce
     public void gravity(){
 
+        // constant downforce applied to the player
+        // gravity affecting velY
+        p.setVelY(p.getVelY() + p.getGrav() * p.getDecel());
+        p.setVelX(p.getVelX() * p.getDecel());
+
         // checks for player coming into contact with the floor
         if(p.getY() >= obj.getFloor()){
             contact = true;
         }else{
             contact = false;
+            keys[UP] = false;
+            keys[RIGHT] = false;
+            keys[LEFT] = false;
         }
-
-        // gravity affecting velY
-        p.setVelY(p.getVelY() + p.gravPull);
 
         // gravity affecting velX
         if(contact == false){// start outer if
-            if(checkKey(UP) && contact == false){
-                keys[UP] = false;
+            if(p.getVelX() > 0){
+                p.setVelX(p.getVelX() + p.getDirect());
             }
-            p.setVelX(p.getVelX() * 0.9f); 
-            p.setVelY(p.getVelY() * 0.9f);
+            if(p.getVelX() < 0){
+                p.setVelX(p.getVelX() - p.getDirect());
+            }
         }// end outer if
     }
     

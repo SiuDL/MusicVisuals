@@ -7,8 +7,9 @@ public abstract class GameObject {
     float velX = 0;
     float velY = 0;
 
-    final float gravPull = 10;
-    final float decel = -5;
+    final private float gravPull = 10;
+    final private float direction = 4;
+    final private float decel = 0.9f;
 
     public GameObject(Game game, float x, float y)
     {
@@ -47,6 +48,18 @@ public abstract class GameObject {
 
     public float getVelX(){
         return velX;
+    }
+
+    public float getGrav() {
+        return gravPull;
+    }
+
+    public float getDirect() {
+        return direction;
+    }
+
+    public float getDecel(){
+        return decel;
     }
 
     // subclasses must implement these abstract methods, otherwise they will be abstract

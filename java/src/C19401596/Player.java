@@ -24,7 +24,7 @@ public class Player extends GameObject{
         // checks for when key is pressed
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
-                setVelY(-80);
+                setVelY(-60);
             }
             if (game.checkKey(PApplet.RIGHT)){
                 setVelX(20);
@@ -40,10 +40,10 @@ public class Player extends GameObject{
                 setVelY(0);
             }
             if (game.keyCode == PApplet.RIGHT){
-                setVelX(getVelX() * 0.9f);
+                setVelX(getVelX() * getDecel());
             }
             if (game.keyCode == PApplet.LEFT){
-                setVelX(getVelX() * 0.9f);
+                setVelX(getVelX() * getDecel());
             }
         }
     }
