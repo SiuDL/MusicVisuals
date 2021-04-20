@@ -34,13 +34,16 @@ public class Player extends GameObject{
             if (game.checkKey(PApplet.LEFT)){
                 setVelX(-20);
             }
+            if (game.keyCode == PApplet.RIGHT && game.keyCode == PApplet.LEFT){
+                setVelX(0);
+            }
         }
 
         // checks for when key is released
         if(game.keyPressed == false){
             if(game.keyCode == PApplet.UP){
-                setVelY(0);
-                setVelX(0);
+                setVelY(getVelY() * getDecel());
+                setVelX(getVelX() * getDecel());
             }
             if (game.keyCode == PApplet.RIGHT){
                 setVelX(getVelX() * getDecel());
