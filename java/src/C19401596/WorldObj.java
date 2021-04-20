@@ -10,7 +10,6 @@ public class WorldObj extends GameObject{
     private float floorY = game.height * 0.9f;
     private float floorW = game.width;
     private float floorH = 100;
-    private float halfFH = floorH / 2;
 
     // roof variables
     private float roofX = 0;
@@ -51,18 +50,18 @@ public class WorldObj extends GameObject{
     }
 
     public float getFloor(){
-        return floorY - halfFH; // halfFH coincidentally is also half player w
+        return floorY - floorH;
     }
 
     public float getLeftWall(){
-        return leftWallW + 50; // 50 = half of player width
+        return leftWallX;
     }
 
     public float getRightWall(){
-        return rightWallX - 50;
+        return rightWallX - 70;
     }
 
     public float getRoof(){
-        return roofH + 50;
+        return roofX - 4;
     }
 }

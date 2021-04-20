@@ -1,6 +1,7 @@
 package C19401596;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Player extends GameObject{
 
@@ -8,9 +9,14 @@ public class Player extends GameObject{
         super(game, x, y);
     }
 
+    float pWidth = 100;
+    float pHeight = 100;
+
     public void render(){
         game.fill(255);
-        game.ellipse(x, y, 100, 100); // note: obj collision rely on the player object's scale
+        PImage player;
+        player = game.loadImage("spr0.png");
+        game.image(player, x, y, pWidth, pHeight);  // note: obj collision rely on the player object's scale
     }
 
     // method to control player player velocity
@@ -29,10 +35,10 @@ public class Player extends GameObject{
                 setVelY(-60);
             }
             if (game.checkKey(PApplet.RIGHT)){
-                setVelX(20);
+                setVelX(15);
             }
             if (game.checkKey(PApplet.LEFT)){
-                setVelX(-20);
+                setVelX(-15);
             }
             if (game.keyCode == PApplet.RIGHT && game.keyCode == PApplet.LEFT){
                 setVelX(0);
