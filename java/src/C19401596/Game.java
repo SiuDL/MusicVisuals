@@ -1,5 +1,7 @@
 package C19401596;
 
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 
 public class Game extends PApplet{
@@ -8,6 +10,7 @@ public class Game extends PApplet{
 
     Player p;
     WorldObj obj;
+    ArrayList<GameObject> gameObj = new ArrayList<GameObject>();
 
     Boolean contact;
 
@@ -18,13 +21,21 @@ public class Game extends PApplet{
     public void setup(){
         obj = new WorldObj(this);
         p = new Player(this, width/2, obj.getFloor());
+
+        gameObj.add(p);
+        gameObj.add(obj);
     }
 
     public void draw(){
         background(80,80,80);
-        p.render();
-        p.update();
-        obj.render();
+        for(int i = gameObj.size() - 1; i >= 0; i--){
+            GameObject goB = gameObj.get(i);
+            goB.render();
+            goB.update();
+        }
+        //p.render();
+        //p.update();
+        //obj.render();
 
         gravity();
         collisionDetect();

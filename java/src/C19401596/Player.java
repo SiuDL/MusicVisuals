@@ -15,6 +15,11 @@ public class Player extends GameObject{
     PImage playerIdle = new PImage();
     PImage[] playerRun = new PImage[5];
 
+    public void loadIdle(){
+        playerIdle = game.loadImage("sprR/spr0.png");
+        game.image(playerIdle, x, y, pWidth, pHeight);
+    }
+
     public void animateRRun(){
         for(int i = 2; i < playerRun.length; i++){
             playerRun[i] = game.loadImage("sprR/spr"+i+".png");
@@ -31,9 +36,8 @@ public class Player extends GameObject{
 
     public void render(){
         
-        if(game.keyPressed == false){
-            playerIdle = game.loadImage("sprR/spr0.png");
-            game.image(playerIdle, x, y, pWidth, pHeight);  // note: obj collision rely on the player object's scale
+        if((game.checkKey(PApplet.RIGHT) == false) && (game.checkKey(PApplet.LEFT) == false) && getVelY() != 0){
+            loadIdle();
         }
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
@@ -44,8 +48,7 @@ public class Player extends GameObject{
             }else if (game.checkKey(PApplet.LEFT) && game.checkKey(PApplet.RIGHT) == false){
                 animateLRun();
             }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
-                playerIdle = game.loadImage("sprR/spr0.png");
-                game.image(playerIdle, x, y, pWidth, pHeight);
+                loadIdle();
             }
         }        
     }
@@ -62,19 +65,18 @@ public class Player extends GameObject{
 
         // checks for when key is pressed
         
-        if (game.checkKey(PApplet.UP)){
+        if(game.checkKey(PApplet.UP)){
             setVelY(-60);
         }
-        if (game.checkKey(PApplet.RIGHT)){
+        if(game.checkKey(PApplet.RIGHT)){
             setVelX(15);
         }
-        if (game.checkKey(PApplet.LEFT)){
+        if(game.checkKey(PApplet.LEFT)){
             setVelX(-15);
         }
-        if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
+        if(game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
             setVelX(0);
         }
-        
 
         // checks for when key is released
         if(game.keyPressed == false){
