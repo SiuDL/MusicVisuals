@@ -32,8 +32,7 @@ public class Player extends GameObject{
         
         if((game.checkKey(PApplet.RIGHT) == false) && (game.checkKey(PApplet.LEFT) == false) && getVelY() != 0){
             loadIdle();
-        }
-        if (game.checkKey(PApplet.UP)){
+        }else if(game.checkKey(PApplet.UP)){
             loadIdle();
         }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT) == false){
             animateRRun();
