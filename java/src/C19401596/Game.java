@@ -27,6 +27,7 @@ public class Game extends PApplet{
     public void setup(){
         obj = new WorldObj(this);
         p = new Player(this, width/2, obj.getFloor());
+        
         for(int i = 0; i < SIZE; i++){
             if(i == 0){
                 animI[i] = loadImage("anim/spr"+i+".png");
