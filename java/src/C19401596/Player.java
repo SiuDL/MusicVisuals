@@ -11,22 +11,21 @@ public class Player extends GameObject{
     float pWidth = 100;
     float pHeight = 100;
 
+    int frame;
+    
     public void loadIdle(){
-        for(int i = 0; i < game.anim.length - 1; i++){
-            game.image(game.anim[0], x, y, pWidth, pHeight);
-        }
+        frame = (frame + 1) % game.animI.length;
+        game.image(game.animI[frame], x, y, pWidth, pHeight);
     }
 
     public void animateRRun(){
-        for(int i = 2; i < 4; i++){
-            game.image(game.anim[i], x, y, pWidth, pHeight);
-        }
+        frame = (frame + 1) % game.animR.length;
+        game.image(game.animR[frame], x, y, pWidth, pHeight);
     }
 
     public void animateLRun(){
-        for(int i = 7; i < game.anim.length - 1; i++){
-            game.image(game.anim[i], x, y, pWidth, pHeight);
-        }
+        frame = (frame + 1) % game.animL.length;
+        game.image(game.animL[frame], x, y, pWidth, pHeight);
     }
 
     public void render(){

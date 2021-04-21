@@ -9,12 +9,14 @@ public class Game extends PApplet{
 
     boolean[] keys = new boolean[1024];
 
-    int endFrame = 60;
-    int startFrame = 0;
     Player p;
     WorldObj obj;
     ArrayList<GameObject> gameObj = new ArrayList<GameObject>();
-    PImage[] anim = new PImage[10];
+
+    int SIZE = 3;
+    PImage[] animI = new PImage[1];
+    PImage[] animL = new PImage[SIZE];
+    PImage[] animR = new PImage[SIZE];
 
     Boolean contact;
 
@@ -25,8 +27,12 @@ public class Game extends PApplet{
     public void setup(){
         obj = new WorldObj(this);
         p = new Player(this, width/2, obj.getFloor());
-        for(int i = 0; i < anim.length; i++){
-            anim[i] = loadImage("anim/spr"+i+".png");
+        for(int i = 0; i < SIZE; i++){
+            if(i == 0){
+                animI[i] = loadImage("anim/spr"+i+".png");
+            }
+            animL[i] = loadImage("animL/spr"+i+".png");
+            animR[i] = loadImage("animR/spr"+i+".png");
         }
 
         gameObj.add(p);
@@ -43,8 +49,6 @@ public class Game extends PApplet{
 
         gravity();
         collisionDetect();
-
-        startFrame = (startFrame + 1) % endFrame;
     }
     
     boolean checkKey(int k) {
