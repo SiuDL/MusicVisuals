@@ -1,7 +1,6 @@
 package C19401596;
 
 import processing.core.PApplet;
-import processing.core.PImage;
 
 public class Player extends GameObject{
 
@@ -12,25 +11,21 @@ public class Player extends GameObject{
     float pWidth = 100;
     float pHeight = 100;
 
-    PImage playerIdle = new PImage();
-    PImage[] playerRun = new PImage[5];
-
     public void loadIdle(){
-        playerIdle = game.loadImage("sprR/spr0.png");
-        game.image(playerIdle, x, y, pWidth, pHeight);
+        for(int i = 0; i < game.anim.length - 1; i++){
+            game.image(game.anim[0], x, y, pWidth, pHeight);
+        }
     }
 
     public void animateRRun(){
-        for(int i = 2; i < playerRun.length; i++){
-            playerRun[i] = game.loadImage("sprR/spr"+i+".png");
-            game.image(playerRun[i], x, y, pWidth, pHeight);
+        for(int i = 2; i < 4; i++){
+            game.image(game.anim[i], x, y, pWidth, pHeight);
         }
     }
 
     public void animateLRun(){
-        for(int i = 2; i < playerRun.length; i++){
-            playerRun[i] = game.loadImage("sprL/sprl"+i+".png");
-            game.image(playerRun[i], x, y, pWidth, pHeight);
+        for(int i = 7; i < game.anim.length - 1; i++){
+            game.image(game.anim[i], x, y, pWidth, pHeight);
         }
     }
 
@@ -41,8 +36,7 @@ public class Player extends GameObject{
         }
         if(game.keyPressed == true){
             if (game.checkKey(PApplet.UP)){
-                playerIdle = game.loadImage("sprR/spr0.png");
-                game.image(playerIdle, x, y, pWidth, pHeight); 
+                loadIdle();
             }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT) == false){
                 animateRRun();
             }else if (game.checkKey(PApplet.LEFT) && game.checkKey(PApplet.RIGHT) == false){
@@ -80,6 +74,10 @@ public class Player extends GameObject{
 
         // checks for when key is released
         if(game.keyPressed == false){
+            setVelY(getVelY() * getDecel());
+            setVelX(getVelX() * getDecel());
+
+            /* To be used later on
             if(game.keyCode == PApplet.UP){
                 setVelY(getVelY() * getDecel());
                 setVelX(getVelX() * getDecel());
@@ -90,6 +88,7 @@ public class Player extends GameObject{
             if (game.keyCode == PApplet.LEFT){
                 setVelX(getVelX() * getDecel());
             }
+            */
         }
     }
 }

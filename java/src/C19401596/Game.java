@@ -3,14 +3,18 @@ package C19401596;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Game extends PApplet{
 
     boolean[] keys = new boolean[1024];
 
+    int endFrame = 60;
+    int startFrame = 0;
     Player p;
     WorldObj obj;
     ArrayList<GameObject> gameObj = new ArrayList<GameObject>();
+    PImage[] anim = new PImage[10];
 
     Boolean contact;
 
@@ -21,6 +25,9 @@ public class Game extends PApplet{
     public void setup(){
         obj = new WorldObj(this);
         p = new Player(this, width/2, obj.getFloor());
+        for(int i = 0; i < anim.length; i++){
+            anim[i] = loadImage("anim/spr"+i+".png");
+        }
 
         gameObj.add(p);
         gameObj.add(obj);
@@ -33,12 +40,11 @@ public class Game extends PApplet{
             goB.render();
             goB.update();
         }
-        //p.render();
-        //p.update();
-        //obj.render();
 
         gravity();
         collisionDetect();
+
+        startFrame = (startFrame + 1) % endFrame;
     }
     
     boolean checkKey(int k) {
