@@ -77,13 +77,13 @@ public class Game extends PApplet{
 
         // gravity affecting velX
         if(contact == false){// start outer if
-            if(checkKey(RIGHT) == false && checkKey(UP) == false){
+            if(checkKey(RIGHT) == false){
                 p.setVelX(p.getVelX() - p.getDirect() * p.getDecel());
             }
-            if(checkKey(LEFT) == false && checkKey(UP) == false){
+            if(checkKey(LEFT) == false){
                 p.setVelX(p.getVelX() + p.getDirect() * p.getDecel());
             }
-        }// end outer if
+        }
     }
     
     // method to detect collision between world objects and the player object
