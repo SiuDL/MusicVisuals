@@ -70,8 +70,8 @@ public class Player extends GameObject{
 
         // checks for when key is released
         if(game.keyPressed == false){
-            setVelY(0);
-            setVelX(0);
+            setVelY(getVelY() * getDecel());
+            setVelX(getVelX() * getDecel());
 
             /* Older if(game.keyPressed == false) build/implementation
             if(game.keyCode == PApplet.UP){
