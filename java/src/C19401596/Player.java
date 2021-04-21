@@ -33,17 +33,15 @@ public class Player extends GameObject{
         if((game.checkKey(PApplet.RIGHT) == false) && (game.checkKey(PApplet.LEFT) == false) && getVelY() != 0){
             loadIdle();
         }
-        if(game.keyPressed == true){
-            if (game.checkKey(PApplet.UP)){
-                loadIdle();
-            }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT) == false){
-                animateRRun();
-            }else if (game.checkKey(PApplet.LEFT) && game.checkKey(PApplet.RIGHT) == false){
-                animateLRun();
-            }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
-                loadIdle();
-            }
-        }        
+        if (game.checkKey(PApplet.UP)){
+            loadIdle();
+        }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT) == false){
+            animateRRun();
+        }else if (game.checkKey(PApplet.LEFT) && game.checkKey(PApplet.RIGHT) == false){
+            animateLRun();
+        }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
+            loadIdle();
+        }       
     }
 
     // method to control player player velocity
@@ -76,7 +74,7 @@ public class Player extends GameObject{
             setVelY(getVelY() * getDecel());
             setVelX(getVelX() * getDecel());
 
-            /* To be used later on
+            /* Older if(game.keyPressed == false) build/implementation
             if(game.keyCode == PApplet.UP){
                 setVelY(getVelY() * getDecel());
                 setVelX(getVelX() * getDecel());

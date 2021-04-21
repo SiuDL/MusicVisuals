@@ -9,14 +9,14 @@ public class Game extends PApplet{
 
     boolean[] keys = new boolean[1024];
 
-    Player p;
-    WorldObj obj;
-    ArrayList<GameObject> gameObj = new ArrayList<GameObject>();
-
     int SIZE = 3;
     PImage[] animI = new PImage[1];
     PImage[] animL = new PImage[SIZE];
     PImage[] animR = new PImage[SIZE];
+
+    Player p;
+    WorldObj obj;
+    ArrayList<GameObject> gameObj = new ArrayList<GameObject>();
 
     Boolean contact;
 
@@ -41,6 +41,7 @@ public class Game extends PApplet{
 
     public void draw(){
         background(80,80,80);
+
         for(int i = gameObj.size() - 1; i >= 0; i--){
             GameObject goB = gameObj.get(i);
             goB.render();
