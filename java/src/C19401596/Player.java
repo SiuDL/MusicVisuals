@@ -8,10 +8,12 @@ public class Player extends GameObject{
         super(game, x, y);
     }
 
+    int frame;
+
     float pWidth = 100;
     float pHeight = 100;
 
-    int frame;
+    boolean jumped = false;
     
     public void loadIdle(){
         frame = (frame + 1) % game.animI.length;
@@ -49,6 +51,17 @@ public class Player extends GameObject{
         y += velY;
     }
 
+    public void jump(){
+        if(jumped == false){
+            setVelY(-70);
+            jumped = true;
+        }else{
+            if(game.contact == true){
+                jumped = false;  
+            }
+        }
+    }
+
     public void update(){
         
         playerVel();
@@ -56,7 +69,7 @@ public class Player extends GameObject{
         // checks for when key is pressed
         
         if(game.checkKey(' ')){
-            setVelY(-60);
+            jump();
         }
         if(game.checkKey('D')){
             setVelX(15);
