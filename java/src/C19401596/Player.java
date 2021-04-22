@@ -69,22 +69,14 @@ public class Player extends GameObject{
         }
 
         // checks for when key is released
-        if(game.keyPressed == false){
+        if(game.checkKey(PApplet.UP) == false){
             setVelY(getVelY() * getDecel());
+        }
+        if(game.checkKey(PApplet.RIGHT) == false){
             setVelX(getVelX() * getDecel());
-
-            /* Older if(game.keyPressed == false) build/implementation
-            if(game.keyCode == PApplet.UP){
-                setVelY(getVelY() * getDecel());
-                setVelX(getVelX() * getDecel());
-            }
-            if (game.keyCode == PApplet.RIGHT){
-                setVelX(getVelX() * getDecel());
-            }
-            if (game.keyCode == PApplet.LEFT){
-                setVelX(getVelX() * getDecel());
-            }
-            */
+        }
+        if(game.checkKey(PApplet.LEFT) == false){
+            setVelX(getVelX() * getDecel());
         }
     }
 }
