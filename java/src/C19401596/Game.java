@@ -72,15 +72,15 @@ public class Game extends PApplet{
             contact = true;
         }else{
             contact = false;
-            keys[UP] = false;
+            keys[' '] = false;
         }
 
         // gravity affecting velX
         if(contact == false){// start outer if
-            if(checkKey(RIGHT) == false){
+            if(checkKey('D') == false){
                 p.setVelX(p.getVelX() - p.getDirect());
             }
-            if(checkKey(LEFT) == false){
+            if(checkKey('A') == false){
                 p.setVelX(p.getVelX() + p.getDirect());
             }
         }

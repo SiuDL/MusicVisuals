@@ -1,6 +1,6 @@
 package C19401596;
 
-import processing.core.PApplet;
+//import processing.core.PApplet;
 
 public class Player extends GameObject{
 
@@ -30,15 +30,15 @@ public class Player extends GameObject{
 
     public void render(){
         
-        if((game.checkKey(PApplet.RIGHT) == false) && (game.checkKey(PApplet.LEFT) == false) && getVelY() != 0){
+        if((game.checkKey('D') == false) && (game.checkKey('A') == false) && getVelY() != 0){
             loadIdle();
-        }else if(game.checkKey(PApplet.UP)){
+        }else if(game.checkKey(' ')){
             loadIdle();
-        }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT) == false){
+        }else if (game.checkKey('D') && game.checkKey('A') == false){
             animateRRun();
-        }else if (game.checkKey(PApplet.LEFT) && game.checkKey(PApplet.RIGHT) == false){
+        }else if (game.checkKey('A') && game.checkKey('D') == false){
             animateLRun();
-        }else if (game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
+        }else if (game.checkKey('D') && game.checkKey('A')){
             loadIdle();
         }       
     }
@@ -55,27 +55,27 @@ public class Player extends GameObject{
 
         // checks for when key is pressed
         
-        if(game.checkKey(PApplet.UP)){
+        if(game.checkKey(' ')){
             setVelY(-60);
         }
-        if(game.checkKey(PApplet.RIGHT)){
+        if(game.checkKey('D')){
             setVelX(15);
         }
-        if(game.checkKey(PApplet.LEFT)){
+        if(game.checkKey('A')){
             setVelX(-15);
         }
-        if(game.checkKey(PApplet.RIGHT) && game.checkKey(PApplet.LEFT)){
+        if(game.checkKey('D') && game.checkKey('A')){
             setVelX(0);
         }
 
         // checks for when key is released
-        if(game.checkKey(PApplet.UP) == false){
+        if(game.checkKey(' ') == false){
             setVelY(getVelY() * getDecel());
         }
-        if(game.checkKey(PApplet.RIGHT) == false){
+        if(game.checkKey('D') == false){
             setVelX(getVelX() * getDecel());
         }
-        if(game.checkKey(PApplet.LEFT) == false){
+        if(game.checkKey('A') == false){
             setVelX(getVelX() * getDecel());
         }
     }
