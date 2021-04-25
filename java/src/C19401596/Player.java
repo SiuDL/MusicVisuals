@@ -22,15 +22,15 @@ public class Player extends GameObject{
     public void render(){
         
         if((game.checkKey('D') == false) && (game.checkKey('A') == false) && getVelY() != 0){
-            animator(game.animI);
+            animator(game.playerI);
         }else if(game.checkKey(' ')){
-            animator(game.animI);
+            animator(game.playerI);
         }else if (game.checkKey('D') && game.checkKey('A') == false){
-            animator(game.animR);
+            animator(game.playerR);
         }else if (game.checkKey('A') && game.checkKey('D') == false){
-            animator(game.animL);
+            animator(game.playerL);
         }else if (game.checkKey('D') && game.checkKey('A')){
-            animator(game.animI);
+            animator(game.playerI);
         }       
     }
 

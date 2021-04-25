@@ -3,7 +3,7 @@ package C19401596;
 public abstract class GameObject{
     
     Game game;
-    int frame;
+    int frame = 0;
 
     float x, y;
     float velX = 0;

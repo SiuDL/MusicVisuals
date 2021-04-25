@@ -9,12 +9,20 @@ public class Game extends PApplet{
 
     boolean[] keys = new boolean[1024];
 
+    // defining array sizes for PImage arrays
+    int IDLE = 1;
     int SIZE = 3;
-    PImage[] animI = new PImage[1];
-    PImage[] animL = new PImage[SIZE];
-    PImage[] animR = new PImage[SIZE];
+
+    // PImage arrays for storing sprite .png's
+    PImage[] playerI = new PImage[IDLE];
+    PImage[] playerL = new PImage[SIZE];
+    PImage[] playerR = new PImage[SIZE];
+    PImage[] enemyI = new PImage[IDLE];
+    PImage[] enemyL = new PImage[SIZE];
+    PImage[] enemyR = new PImage[SIZE];
 
     Player p;
+    Enemy e;
     WorldObj obj;
     ArrayList<GameObject> gameObj = new ArrayList<GameObject>();
 
@@ -26,17 +34,23 @@ public class Game extends PApplet{
 
     public void setup(){
         obj = new WorldObj(this);
-        p = new Player(this, width/2, obj.getFloor());
+        p = new Player(this, (width * 0.1f), obj.getFloor());
+        e = new Enemy(this, (width * 0.8f), obj.getFloor());
         
+        // for loop to load all images into arrays at setup
         for(int i = 0; i < SIZE; i++){
             if(i == 0){
-                animI[i] = loadImage("animI/spr"+i+".png");
+                playerI[i] = loadImage("player/animI/spr"+i+".png");
+                enemyI[i] = loadImage("enemy/animI/spr"+i+".png");
             }
-            animL[i] = loadImage("animL/spr"+i+".png");
-            animR[i] = loadImage("animR/spr"+i+".png");
+            playerL[i] = loadImage("player/animL/spr"+i+".png");
+            playerR[i] = loadImage("player/animR/spr"+i+".png");
+            enemyL[i] = loadImage("enemy/animL/spr"+i+".png");
+            enemyR[i] = loadImage("enemy/animR/spr"+i+".png");
         }
 
         gameObj.add(p);
+        gameObj.add(e);
         gameObj.add(obj);
     }
 
