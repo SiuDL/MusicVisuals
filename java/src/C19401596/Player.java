@@ -10,6 +10,7 @@ public class Player extends GameObject{
 
     float pWidth = 100;
     float pHeight = 100;
+    float halfPW = pWidth / 2;
 
     boolean jumped = false;
 
@@ -80,5 +81,9 @@ public class Player extends GameObject{
         if(game.checkKey('A') == false){
             setVelX(getVelX() * getDecel());
         }
+    }
+
+    public float getPlayerW(){
+        return halfPW;
     }
 }

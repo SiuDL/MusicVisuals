@@ -8,15 +8,16 @@ public class Enemy extends GameObject{
         super(game, x, y);
     }
 
-    float pWidth = 100;
-    float pHeight = 100;
+    float eWidth = 100;
+    float eHeight = 100;
+    float halfEW = eWidth / 2;
 
     boolean jumped = false;
 
     public void animator(PImage[] a){
         PImage[] anim = a;
         frame = (frame + 1) % anim.length;
-        game.image(anim[frame], x, y, pWidth, pHeight);
+        game.image(anim[frame], x, y, eWidth, eHeight);
     }
 
     public void enemyVel(){
@@ -32,4 +33,7 @@ public class Enemy extends GameObject{
         
     }
     
+    public float getEnemy(){
+        return halfEW;
+    }
 }

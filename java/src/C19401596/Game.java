@@ -52,6 +52,8 @@ public class Game extends PApplet{
         gameObj.add(p);
         gameObj.add(e);
         gameObj.add(obj);
+
+        System.out.println(p.getX()+" "+e.getX()+"\n"+p.getY()+" "+e.getY());
     }
 
     public void draw(){
@@ -103,7 +105,8 @@ public class Game extends PApplet{
     // method to detect collision between world objects and the player object
     public void collisionDetect(){
 
-        // stops player from clipping through the ground
+        //  --  world object collsion   --  //
+        // stops player from clipping through the floor
         if(p.getY() >= obj.getFloor()){
             p.setY(obj.getFloor());
         }
@@ -121,6 +124,31 @@ public class Game extends PApplet{
         // stops player from clipping through the roof
         if(p.getY() <= obj.getRoof()){
             p.setY(obj.getRoof());
+        }
+
+        // stops enemy from clipping through the floor
+        if(e.getY() >= obj.getFloor()){
+            e.setY(obj.getFloor());
+        }
+
+        // stops enemy from clipping through the left wall
+        if(e.getX() <= obj.getLeftWall()){
+            e.setX(obj.getLeftWall());
+        }
+
+        // stops enemy from clipping through the right wall
+        if(e.getX() >= obj.getRightWall()){
+            e.setX(obj.getRightWall());
+        }
+
+        // stops enemy from clipping through the roof
+        if(e.getY() <= obj.getRoof()){
+            e.setY(obj.getRoof());
+        }
+
+        //  -- Player vs Enemy collsion detection  --  //
+        if(p.getX() >= (e.getX() - e.getEnemy()) && p.getX() <= (e.getX() + e.getEnemy())){
+
         }
     }
 
