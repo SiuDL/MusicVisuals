@@ -2,8 +2,6 @@ package C19401596;
 
 import processing.core.PImage;
 
-//import processing.core.PApplet;
-
 public class Player extends GameObject{
 
     public Player(Game game, float x, float y){

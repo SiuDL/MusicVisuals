@@ -6,7 +6,10 @@ public class Enemy extends GameObject{
         super(game, x, y);
     }
 
-    
+    public void enemyVel(){
+        x += velX;
+        y += velY;
+    }
 
     public void render() {
         
