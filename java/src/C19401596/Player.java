@@ -1,5 +1,7 @@
 package C19401596;
 
+import processing.core.PImage;
+
 //import processing.core.PApplet;
 
 public class Player extends GameObject{
@@ -8,40 +10,29 @@ public class Player extends GameObject{
         super(game, x, y);
     }
 
-    int frame;
-
     float pWidth = 100;
     float pHeight = 100;
 
     boolean jumped = false;
-    
-    public void loadIdle(){
-        frame = (frame + 1) % game.animI.length;
-        game.image(game.animI[frame], x, y, pWidth, pHeight);
-    }
 
-    public void animateRRun(){
-        frame = (frame + 1) % game.animR.length;
-        game.image(game.animR[frame], x, y, pWidth, pHeight);
-    }
-
-    public void animateLRun(){
-        frame = (frame + 1) % game.animL.length;
-        game.image(game.animL[frame], x, y, pWidth, pHeight);
+    public void animator(PImage[] a){
+        PImage[] anim = a;
+        frame = (frame + 1) % anim.length;
+        game.image(anim[frame], x, y, pWidth, pHeight);
     }
 
     public void render(){
         
         if((game.checkKey('D') == false) && (game.checkKey('A') == false) && getVelY() != 0){
-            loadIdle();
+            animator(game.animI);
         }else if(game.checkKey(' ')){
-            loadIdle();
+            animator(game.animI);
         }else if (game.checkKey('D') && game.checkKey('A') == false){
-            animateRRun();
+            animator(game.animR);
         }else if (game.checkKey('A') && game.checkKey('D') == false){
-            animateLRun();
+            animator(game.animL);
         }else if (game.checkKey('D') && game.checkKey('A')){
-            loadIdle();
+            animator(game.animI);
         }       
     }
 

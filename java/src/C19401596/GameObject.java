@@ -1,7 +1,9 @@
 package C19401596;
 
-public abstract class GameObject {
+public abstract class GameObject{
+    
     Game game;
+    int frame;
 
     float x, y;
     float velX = 0;

@@ -30,7 +30,7 @@ public class Game extends PApplet{
         
         for(int i = 0; i < SIZE; i++){
             if(i == 0){
-                animI[i] = loadImage("anim/spr"+i+".png");
+                animI[i] = loadImage("animI/spr"+i+".png");
             }
             animL[i] = loadImage("animL/spr"+i+".png");
             animR[i] = loadImage("animR/spr"+i+".png");
