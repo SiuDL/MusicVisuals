@@ -53,7 +53,8 @@ public class Game extends PApplet{
         gameObj.add(e);
         gameObj.add(obj);
 
-        System.out.println(p.getX()+" "+e.getX()+"\n"+p.getY()+" "+e.getY());
+        // checking player and enemy co-ordinates
+        //System.out.println(p.getX()+" "+e.getX()+"\n"+p.getY()+" "+e.getY());
     }
 
     public void draw(){
@@ -67,6 +68,10 @@ public class Game extends PApplet{
 
         gravity();
         collisionDetect();
+
+        // checking where the enemy's head xy co-ordinates
+        //fill(255,0,0);
+        //line(e.getX(), e.getY()+20, e.getX() + 100, e.getY()+20);
     }
     
     boolean checkKey(int k) {
@@ -146,10 +151,15 @@ public class Game extends PApplet{
             e.setY(obj.getRoof());
         }
 
-        //  -- Player vs Enemy collsion detection  --  //
+        //  -- Player vs Enemy proximity detection  --  //
         if((p.getX() >= (e.getX() - e.getEnemy())) && (p.getX() <= (e.getX() + e.getEnemy())) && (p.getY() >= e.getY())){
             //System.out.println("detect");
-            
+            if(p.getX() > e.getX() - e.getEnemy()){
+                p.setVelX(-5);
+            }
+            if(p.getX() > e.getX()){
+                p.setVelX(5);
+            }
         }
     }
 
