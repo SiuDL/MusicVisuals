@@ -15,6 +15,7 @@ public class Game extends PApplet{
 
     // PImage arrays for storing sprite .png's
     PImage[] playerI = new PImage[IDLE];
+    PImage[] playerJ = new PImage[IDLE];
     PImage[] playerL = new PImage[SIZE];
     PImage[] playerR = new PImage[SIZE];
     PImage[] enemyI = new PImage[IDLE];
@@ -29,7 +30,8 @@ public class Game extends PApplet{
     Boolean contact;
 
     public void settings(){
-        size(1600, 900);
+        //size(1600, 900);
+        fullScreen();
     }
 
     public void setup(){
@@ -41,6 +43,7 @@ public class Game extends PApplet{
         for(int i = 0; i < SIZE; i++){
             if(i == 0){
                 playerI[i] = loadImage("player/animI/spr"+i+".png");
+                playerJ[i] = loadImage("player/animJ/spr"+i+".png");
                 enemyI[i] = loadImage("enemy/animI/spr"+i+".png");
             }
             playerL[i] = loadImage("player/animL/spr"+i+".png");
@@ -60,15 +63,14 @@ public class Game extends PApplet{
     public void draw(){
         background(80,80,80);
 
+        gravity();
+        collisionDetect();
+
         for(int i = gameObj.size() - 1; i >= 0; i--){
             GameObject goB = gameObj.get(i);
             goB.render();
             goB.update();
         }
-
-        gravity();
-        collisionDetect();
-
         // checking where the enemy's head xy co-ordinates
         //fill(255,0,0);
         //line(e.getX(), e.getY()+20, e.getX() + 100, e.getY()+20);
@@ -151,14 +153,14 @@ public class Game extends PApplet{
             e.setY(obj.getRoof());
         }
 
-        //  -- Player vs Enemy proximity detection  --  //
+        //  -- Player vs Enemy collision detection  --  //
         if((p.getX() >= (e.getX() - e.getEnemy())) && (p.getX() <= (e.getX() + e.getEnemy())) && (p.getY() >= e.getY())){
             //System.out.println("detect");
             if(p.getX() > e.getX() - e.getEnemy()){
-                p.setVelX(-5);
+                p.setVelX(-2);
             }
             if(p.getX() > e.getX()){
-                p.setVelX(5);
+                p.setVelX(2);
             }
         }
     }

@@ -25,12 +25,19 @@ public class Enemy extends GameObject{
         y += velY;
     }
 
-    public void render() {
+    public void render(){
         animator(game.enemyI);
     }
 
-    public void update() {
-        
+    public void update(){
+
+        enemyVel();
+
+        if(getX() >= game.p.getX()){
+            setVelX(-5);
+        }else if(getX() <= game.p.getX()){
+            setVelX(5);
+        }
     }
     
     public float getEnemy(){

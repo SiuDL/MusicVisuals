@@ -11,7 +11,7 @@ public abstract class GameObject{
 
     final private float gravPull = 10;
     final private float direction = 10;
-    final private float decel = 0.9f;
+    final private float decel = 0.95f;
 
     public GameObject(Game game, float x, float y)
     {

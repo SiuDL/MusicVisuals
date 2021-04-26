@@ -7,7 +7,7 @@ public class WorldObj extends GameObject{
 
     // floor variables
     private float floorX = 0;
-    private float floorY = game.height * 0.9f;
+    private float floorY = game.height * 0.95f;
     private float floorW = game.width;
     private float floorH = 100;
 

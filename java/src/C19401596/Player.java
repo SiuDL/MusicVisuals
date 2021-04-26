@@ -20,19 +20,27 @@ public class Player extends GameObject{
         game.image(anim[frame], x, y, pWidth, pHeight);
     }
 
+    public void attAnimator(PImage[] a){
+        PImage[] anim = a;
+        frame = (frame + 1) % anim.length;
+        game.image(anim[frame], x, y, pWidth, pHeight);
+    }
+
     public void render(){
-        
-        if((game.checkKey('D') == false) && (game.checkKey('A') == false) && getVelY() != 0){
+
+        if((game.checkKey('D') == false) && (game.checkKey('A') == false) && getVelY() < 0){
+            animator(game.playerJ);
+        }else if((game.checkKey('D') == false) && (game.checkKey('A') == false)){
             animator(game.playerI);
-        }else if(game.checkKey(' ')){
-            animator(game.playerI);
+        }else if(game.checkKey(' ') && game.contact == false){
+            animator(game.playerJ);
         }else if (game.checkKey('D') && game.checkKey('A') == false){
             animator(game.playerR);
         }else if (game.checkKey('A') && game.checkKey('D') == false){
             animator(game.playerL);
         }else if (game.checkKey('D') && game.checkKey('A')){
             animator(game.playerI);
-        }       
+        } 
     }
 
     // method to control player player velocity
