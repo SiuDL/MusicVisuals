@@ -147,8 +147,9 @@ public class Game extends PApplet{
         }
 
         //  -- Player vs Enemy collsion detection  --  //
-        if(p.getX() >= (e.getX() - e.getEnemy()) && p.getX() <= (e.getX() + e.getEnemy())){
-
+        if((p.getX() >= (e.getX() - e.getEnemy())) && (p.getX() <= (e.getX() + e.getEnemy())) && (p.getY() >= e.getY())){
+            //System.out.println("detect");
+            
         }
     }
 
