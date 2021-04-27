@@ -88,7 +88,7 @@ public class Game extends PApplet{
 
         // constant downforce applied to the player
         // gravity affecting velY
-        p.setVelY(p.getVelY() + p.getGrav());
+        p.setVelY(p.getVelY() + p.getGrav() * p.getDecel());
 
         // checks for player coming into contact with the floor
         if(p.getY() >= obj.getFloor()){

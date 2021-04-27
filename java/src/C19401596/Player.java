@@ -28,12 +28,10 @@ public class Player extends GameObject{
 
     public void render(){
 
-        if((game.checkKey('D') == false) && (game.checkKey('A') == false) && getVelY() < 0){
+        if((game.checkKey('D') == false) && (game.checkKey('A') == false) && !game.contact){
             animator(game.playerJ);
         }else if((game.checkKey('D') == false) && (game.checkKey('A') == false)){
             animator(game.playerI);
-        }else if(game.checkKey(' ') && game.contact == false){
-            animator(game.playerJ);
         }else if (game.checkKey('D') && game.checkKey('A') == false){
             animator(game.playerR);
         }else if (game.checkKey('A') && game.checkKey('D') == false){
