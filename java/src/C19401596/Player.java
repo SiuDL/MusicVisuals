@@ -11,12 +11,16 @@ public class Player extends GameObject{
     float pWidth = 100;
     float pHeight = 100;
     float halfPW = pWidth / 2;
+    int delay = 0;
 
     boolean jumped = false;
 
     public void animator(PImage[] a){
         PImage[] anim = a;
-        frame = (frame + 1) % anim.length;
+        if(delay == 0){
+            frame = (frame + 1) % anim.length;
+        }
+        delay = (delay + 1) % 3;
         game.image(anim[frame], x, y, pWidth, pHeight);
     }
 
@@ -29,15 +33,15 @@ public class Player extends GameObject{
     public void render(){
 
         if((game.checkKey('D') == false) && (game.checkKey('A') == false) && !game.contact){
-            animator(game.playerJ);
+            game.image(game.playerJ[0], x, y, pWidth, pHeight);
         }else if((game.checkKey('D') == false) && (game.checkKey('A') == false)){
-            animator(game.playerI);
+            game.image(game.playerI[0], x, y, pWidth, pHeight);
         }else if (game.checkKey('D') && game.checkKey('A') == false){
             animator(game.playerR);
         }else if (game.checkKey('A') && game.checkKey('D') == false){
             animator(game.playerL);
         }else if (game.checkKey('D') && game.checkKey('A')){
-            animator(game.playerI);
+            game.image(game.playerI[0], x, y, pWidth, pHeight);
         } 
     }
 
