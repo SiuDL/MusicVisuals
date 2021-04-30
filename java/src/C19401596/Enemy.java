@@ -16,7 +16,10 @@ public class Enemy extends GameObject{
 
     public void animator(PImage[] a){
         PImage[] anim = a;
-        frame = (frame + 1) % anim.length;
+        if(delay == 0){
+            frame = (frame + 1) % anim.length;
+        }
+        delay = (delay + 1) % 4;
         game.image(anim[frame], x, y, eWidth, eHeight);
     }
 

@@ -4,6 +4,7 @@ public abstract class GameObject{
     
     Game game;
     int frame = 0;
+    int delay = 0;
 
     float x, y;
     float velX = 0;
