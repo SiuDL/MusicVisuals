@@ -11,13 +11,19 @@ public class Game extends PApplet{
 
     // defining array sizes for PImage arrays
     int IDLE = 1;
-    int SIZE = 3;
+    int SIZE = 4;
 
     // PImage arrays for storing sprite .png's
-    PImage[] playerI = new PImage[IDLE];
+    // Player PImage
+    PImage[] playerIR = new PImage[IDLE];
+    PImage[] playerIL = new PImage[IDLE];
     PImage[] playerJ = new PImage[IDLE];
     PImage[] playerL = new PImage[SIZE];
     PImage[] playerR = new PImage[SIZE];
+    PImage[] playerAR = new PImage[SIZE];
+    PImage[] playerAL = new PImage[SIZE];
+
+    // Enemy PImage 
     PImage[] enemyI = new PImage[IDLE];
     PImage[] enemyL = new PImage[SIZE];
     PImage[] enemyR = new PImage[SIZE];
@@ -42,14 +48,15 @@ public class Game extends PApplet{
         // for loop to load all images into arrays at setup
         for(int i = 0; i < SIZE; i++){
             if(i == 0){
-                playerI[i] = loadImage("player/animI/spr"+i+".png");
+                playerIR[i] = loadImage("player/animIR/spr"+i+".png");
+                playerIL[i] = loadImage("player/animIL/spr"+i+".png");
                 playerJ[i] = loadImage("player/animJ/spr"+i+".png");
                 enemyI[i] = loadImage("enemy/animI/spr"+i+".png");
             }
             playerL[i] = loadImage("player/animL/spr"+i+".png");
             playerR[i] = loadImage("player/animR/spr"+i+".png");
-            enemyL[i] = loadImage("enemy/animL/spr"+i+".png");
-            enemyR[i] = loadImage("enemy/animR/spr"+i+".png");
+            playerAR[i] = loadImage("player/animAR/spr"+i+".png");
+            playerAL[i] = loadImage("player/animAL/spr"+i+".png");
         }
 
         gameObj.add(p);
@@ -156,12 +163,12 @@ public class Game extends PApplet{
         //  -- Player vs Enemy collision detection  --  //
         if((p.getX() >= (e.getX() - e.getEnemy())) && (p.getX() <= (e.getX() + e.getEnemy())) && (p.getY() >= e.getY())){
             //System.out.println("detect");
-            if(p.getX() > e.getX() - e.getEnemy()){
-                p.setVelX(-2);
-            }
-            if(p.getX() > e.getX()){
-                p.setVelX(2);
-            }
+            //if(p.getX() > e.getX() - e.getEnemy()){
+                //p.setVelX(-2);
+            //}
+            //if(p.getX() > e.getX()){
+                //p.setVelX(2);
+            //}
         }
     }
 

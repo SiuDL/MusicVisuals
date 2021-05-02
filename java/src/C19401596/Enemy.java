@@ -36,10 +36,16 @@ public class Enemy extends GameObject{
 
         enemyVel();
 
-        if(getX() >= game.p.getX()){
-            setVelX(-5);
-        }else if(getX() <= game.p.getX()){
-            setVelX(5);
+        if(getX() > game.p.getX()){
+            //setVelX(-5);
+        }else if(getX() < game.p.getX()){
+            //setVelX(5);
+        }
+        
+        if(getX() > game.p.getX() && getX() < game.p.getX() + 40){
+            setVelX(0);
+        }else if(getX() < game.p.getX() && getX() > game.p.getX() - 40){
+            setVelX(0);
         }
     }
     
