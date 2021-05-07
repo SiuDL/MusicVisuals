@@ -3,15 +3,14 @@ package C19401596;
 public abstract class GameObject{
     
     Game game;
-    int frame = 0;
-    int delay = 0;
 
-    float x, y;
+    float x, y, xC, yC;
+    float hitxR, hitxL, hitY;
     float velX = 0;
     float velY = 0;
 
     final private float gravPull = 10;
-    final private float direction = 10;
+    final private float direction = 15;
     final private float decel = 0.9f;
 
     public GameObject(Game game, float x, float y)

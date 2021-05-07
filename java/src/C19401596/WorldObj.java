@@ -45,9 +45,7 @@ public class WorldObj extends GameObject{
         rendObj(roofX, roofY, roofW, roofH); // creates the roof
     }
 
-    public void update(){
-
-    }
+    public void update(){}
 
     public float getFloor(){
         return floorY - floorH;

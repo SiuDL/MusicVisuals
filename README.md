@@ -1,89 +1,59 @@
 # Music Visualiser Project
 
-Name:
+Name: Siu Dzoen Lee
 
-Student Number: 
-
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
+Student Number: C19401596
 
 # Description of the assignment
 
-# Instructions
+My assignment is a simple game where the player must fight a final boss. This fight is accompanied by a rain effect and alongside it is the addition of three songs that inspired the overall design and direction of the game. Mainly, the song used in the main fight called "Ihojin No Yaiba" which came from a final fight scene in the movie "Sword of The Stranger". There are four game states that occur. First game state is the main menu where the game starts, the second state is when the fight starts, the third state is the victory state and finally the fourth state is the death state.
+
+## Music used in assignment
+
+Main Menu and Battle Theme - "Ihojin No Yaiba" from the movie "Sword of The Stranger"
+
+Victory Theme - "Fires of War" from the game "Middle-earth: Shadow of War"
+
+Death Theme - "Farewell Life" by Nights Amore and Arn Anderson
+
+# Instructions - How to play
+
+### Menu controls: 
+Press 0 to skip main menu, death menu and victory menu
+
+### In game controls:
+Press 'a' to move left and Press 'd' to move right
+
+Press 'spacebar' to jump
+
+Press or Hold 'j' to attack
 
 # How it works
+To load the game, press 'f5' when lauching it from Visual Studio Code. The game will launch and the main menu will fade onto the screen. During this fading in sequence, player is able to skip it by pressing '0'. After this stage, the in game fight will begin and the player and enemy health bar will fade onto the screen. There are two outcomes to this fight, if the player dies. The game will change its state to a death state and the player will be met with a death menu, player is then prompted to press '0' to continue. if the player beats the final boss, the game state will change to a victory state and a victory menu will be presented, player is then prompted to press '0' like the previous state in order to continue.
 
 # What I am most proud of in the assignment
 
-# Markdown Tutorial
+My proudest achievement in this assignment is the implementation of animating the sprites and the actual design and drawing of the sprites as show below:
 
-This is *emphasis*
+### Image of Sprites
 
-This is a bulleted list
+![image 1](images/enemy.png)
+![image 2](images/attack.png)
+![image 3](images/player.png)
 
-- Item
-- Item
+### Player animation code
 
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
-# Headings
-## Headings
-#### Headings
-##### Headings
-
-This is code:
-
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
+```java
+public void animator(PImage[] a){
+    PImage[] anim = a;
+    if(delay == 0){
+        frame = (frame + 1) % anim.length;
+    }
+    delay = (delay + 1) % 3;
+    game.image(anim[frame], x, y, pWidth, pHeight);
 }
 ```
 
-So is this without specifying the language:
+# OOP Music Visuals Assignment Youtube Video
 
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
-
-This is an image using a relative URL:
-
-![An image](images/p8.png)
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-
+[![YouTube](https://img.youtube.com/vi/LAeVNd2o4XA/0.jpg)](https://www.youtube.com/watch?v=LAeVNd2o4XA)
